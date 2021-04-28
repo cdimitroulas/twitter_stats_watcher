@@ -1,21 +1,15 @@
 # StatsWatcher
 
-**TODO: Add description**
+Fetches my twitter follower count and other stats and saves them in a CSV regularly.
 
-## Installation
+## Setup
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `stats_watcher` to your list of dependencies in `mix.exs`:
+A `config/secrets.exs` file needs to be created with the following format:
 
 ```elixir
-def deps do
-  [
-    {:stats_watcher, "~> 0.1.0"}
-  ]
-end
+config :stats_watcher_app,
+  TWITTER_API_KEY: '',
+  TWITTER_API_SECRET_KEY: '',
+  TWITTER_BEARER_TOKEN: ''
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/stats_watcher](https://hexdocs.pm/stats_watcher).
 
