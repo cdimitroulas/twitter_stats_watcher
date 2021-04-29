@@ -1,4 +1,9 @@
 defmodule StatsWatcher do
+  def run() do
+    fetch_stats()
+    |> save_csv
+  end
+
   def mk_stats_url() do
     twitter_url = "https://api.twitter.com/2"
     my_username = "chriswearshats"
@@ -37,12 +42,12 @@ defmodule StatsWatcher do
 
   def save_csv(stats) do
     filename = "stats.csv"
-    fileExists = File.exists? filename
+    fileExists = File.exists?(filename)
 
     if !fileExists do
-      File.write! filename, mk_column_names() <> "\n"
+      File.write!(filename, mk_column_names() <> "\n")
     end
 
-    File.write! filename, Enum.join(stats, ",") <> "\n", [:append]
+    File.write!(filename, Enum.join(stats, ",") <> "\n", [:append])
   end
 end
